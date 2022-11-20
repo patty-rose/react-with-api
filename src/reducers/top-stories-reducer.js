@@ -10,6 +10,13 @@ const topStoriesReducer = (state, action) => {
         topStories: action.topStories
       };//Our new action returns a new state object: we use JavaScript's spread syntax to make a copy of the state object, and we specify that isLoaded is set to true and the topStories property is set to action.topStories — the payload we've passed into our action.
 
+    case c.GET_TOP_STORIES_FAILURE:
+      return {
+        ...state,
+        isLoaded: true,
+        error: action.error
+      };
+
     default:
       throw new Error(`There is no action matching ${action.type}.`);
   }
